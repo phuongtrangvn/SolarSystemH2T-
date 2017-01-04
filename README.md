@@ -1,4 +1,3 @@
-# KidsManagement
+# SolarSystemH2T
 Kids Management api and web client
-"# techkids-student" 
-"# SolarSystemH2T-" 
+"# SolarSystemH2T-"
