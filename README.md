@@ -6,5 +6,7 @@ Kids Management api and web client
 Change logs
 
 > ver 0.1.1:
-  >>First start with Sun and 8 planets in the Solar System
-  >>Overview
+  >>First starting with Sun and 8 planets in the Solar System
+  
+  >>Overview controlled by Mouse Pointer
+  
