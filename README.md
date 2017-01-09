@@ -1,5 +1,5 @@
 # SolarSystemH2T
-Kids Management api and web client
+web client
 "# SolarSystemH2T-"
 
 
