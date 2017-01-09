@@ -14,7 +14,7 @@ define(['configs'], function(configs) {
       height = window.innerHeight,
       windowHalfX = width / 2,
       windowHalfY = height / 2,
-      cameraMaxZ = 2, cameraMinZ = 0.5;
+      cameraMaxZ = 10, cameraMinZ = 2;
 
   renderer	= new THREE.WebGLRenderer();
   renderer.setSize( width, height );
@@ -44,8 +44,6 @@ define(['configs'], function(configs) {
   fontMesh  = new THREE.Mesh(geometry, material);
   scene.add(fontMesh);
 
-  setInterval(render, 1000 / 60);
-
   function render() {
     renderer.render( scene, camera );
   }
@@ -54,12 +52,12 @@ define(['configs'], function(configs) {
   updateQueue = [render];
 
   // call this once to start the update queue
-  update = function() {
-    setInterval(function() {
-      updateQueue.forEach(function(updateFunc) {
-        updateFunc();
-      })
-    }, 1000 / 60);
+
+  update = function(time) {
+		requestAnimationFrame( update );
+    updateQueue.forEach(function(updateFunc) {
+      updateFunc();
+    });
   }
 
   function setFocus(obj) {

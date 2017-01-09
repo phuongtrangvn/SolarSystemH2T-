@@ -1,9 +1,19 @@
-define(['app', 'configs'], function(app, configs) {
+define(['app', 'configs', 'entities/TrajectoryMesh'], function(app, configs, TrajectoryMesh) {
+  var config = configs.earth;
+
   var geometry,
       material,
-      earthMesh;
+      mesh;
+  //childrens
+    //-cloud
+  var cloudGeometry,
+      cloudMaterial,
+      cloudMesh;
+    //trajectory
+  var trajectory;
 
-  geometry = new THREE.SphereGeometry(0.0063710, 32, 32);
+  //earth
+  geometry = new THREE.SphereGeometry(config.radiant, 32, 32);
   material = new THREE.MeshPhongMaterial();
 
   material.map = THREE.ImageUtils.loadTexture('img/earthmap1k.jpg');
@@ -14,13 +24,10 @@ define(['app', 'configs'], function(app, configs) {
   material.specularMap = THREE.ImageUtils.loadTexture('img/earthspec1k.jpg');
   material.specular = new THREE.Color('grey');
 
-  earthMesh = new THREE.Mesh(geometry, material);
+  mesh = new THREE.Mesh(geometry, material);
 
   //childrens
     //-cloud
-  var cloudGeometry,
-      cloudMaterial,
-      cloudMesh;
 
   cloudGeometry = new THREE.SphereGeometry(0.0063710, 32, 32);
   cloudMaterial = new THREE.MeshPhongMaterial({
@@ -32,17 +39,23 @@ define(['app', 'configs'], function(app, configs) {
     transparent : true,
     depthWrite  : false
   });
+
   cloudMesh = new THREE.Mesh(cloudGeometry, cloudMaterial);
-  earthMesh.add(cloudMesh);
+  mesh.add(cloudMesh);
+  //trajectory
 
-  earthMesh.position.x += 0.2;
+  trajectory = new TrajectoryMesh(config.Trajectory);
+  mesh.trajectory = trajectory;
+  app.scene.add(trajectory);
+  //setup
 
-  earthMesh.update = function() {
-    earthMesh.rotation.y += 0.01;
-    cloudMesh.rotation.y += 0.01;
+  mesh.position.x = config.distance;
+
+  mesh.update = function() {
+    mesh.rotation.y += 0.01;
   }
 
-  earthMesh.name = "Earth";
+  mesh.name = "Earth";
 
-  return earthMesh;
+  return mesh;
 })
