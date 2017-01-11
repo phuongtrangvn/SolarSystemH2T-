@@ -17,27 +17,25 @@ define(['configs', 'app'], function(configs, app) {
   light = new THREE.PointLight(0xffffff, 2, 20, 0.069);
   sunMesh.add(light);
   light.receiveShadow = true;
-  console.log(light);
 
-  config.spotLight.positions.forEach(function(position) {
-    var spotLight = new THREE.SpotLight(config.spotLight.color, config.spotLight.intensity,
-      config.spotLight.distance, config.spotLight.angle);
-    spotLight.target.position.set(0, 0, 0);
-    spotLight.position.set(position.x, position.y, position.z);
-    sunMesh.add(spotLight);
-  })
+  // config.spotLight.positions.forEach(function(position) {
+  //   var spotLight = new THREE.SpotLight(config.spotLight.color, config.spotLight.intensity,
+  //     config.spotLight.distance, config.spotLight.angle);
+  //   spotLight.target.position.set(0, 0, 0);
+  //   spotLight.position.set(position.x, position.y, position.z);
+  //   sunMesh.add(spotLight);
+  // })
 
 
-  var spotLight = new THREE.SpotLight(config.spotLight.color, config.spotLight.intensity,
-    config.spotLight.distance, config.spotLight.angle);
-  spotLight.target.position.set(0, 0, 0);
-  spotLight.position.set(position.x, position.y, position.z);
-  sunMesh.add(spotLight);
+  // var spotLight = new THREE.SpotLight(config.spotLight.color, config.spotLight.intensity,
+  //   config.spotLight.distance, config.spotLight.angle);
+  // spotLight.target.position.set(0, 0, 0);
+  // spotLight.position.set(position.x, position.y, position.z);
+  // sunMesh.add(spotLight);
 
-  console.log(sunMesh);
 
   sunMesh.update = function() {
-    // sunMesh.rotation.y += 0.01;
+    sunMesh.rotation.y += 0.01;
   }
 
   sunMesh.name = "Sun";
