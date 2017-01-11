@@ -1,4 +1,26 @@
 define([], function() {
+  // distance was division by 1 000 000 000
+  // radiant  was division by 1 000 000
+
+  var sun = {
+    radiant: 0.0696, // sun size was division by 10
+    lightPower: 1,
+    lightColor: "#ffffff",
+    spotLight: {
+      color: "#ffffff",
+      intensity: 10,
+      distance: 0.1,
+      angle: Math.PI / 16,
+      positions: [
+        {x: 0, y: 0, z: 0.1},
+        {x: 0, y: 0, z: -0.1},
+        {x: 0, y: 0.1, z: 0},
+        {x: 0, y: -0.1, z: 0},
+        {x: 0.1, y: 0, z: 0},
+        {x: -0.1, y: 0, z: 0}
+      ]
+    }
+  }
 
   var mercury = {
     distance: 0.057,
@@ -96,34 +118,20 @@ define([], function() {
     }
   }
 
-  var distance = [
-    5.906,
-    4.498,
-    2.870,
-    1.426,
-    0.778,
-    0.227, //mars
-    0.149,
-    0.108,
-    0.057,
-    0
-  ]; // * 1 000 000 000
-
-  var radiant = [
-    0.001195,
-    0.024622,
-    0.025362,
-    0.058232,
-    0.0026312,
-    0.00339,  //mars
-    0.0063710,
-    0.0060518,
-    0.002439,
-    0.0696 // sun size was division by 10
-  ]; // * 1 000 000
-
+  var pluto = {
+    distance: 5.906,
+    radiant: 0.001195,
+    Trajectory: {
+      aX: 0,
+      aY: 0,
+      xRadius: 5.906,
+      yRadius: 5.9,
+      points: 550
+    }
+  }
 
   return {
+    sun: sun,
     mercury: mercury,
     venus: venus,
     earth: earth,

@@ -18,8 +18,8 @@ define(['app', 'configs', 'entities/TrajectoryMesh'], function(app, configs, Tra
 
   material.map = THREE.ImageUtils.loadTexture('img/earthmap1k.jpg');
 
-  material.bumpMap = THREE.ImageUtils.loadTexture('img/earthbump1k.jpg');
-  material.bumpScale = 0.05;
+  // material.bumpMap = THREE.ImageUtils.loadTexture('img/earthbump1k.jpg');
+  // material.bumpScale = 0.05;
 
   material.specularMap = THREE.ImageUtils.loadTexture('img/earthspec1k.jpg');
   material.specular = new THREE.Color('grey');

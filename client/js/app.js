@@ -1,10 +1,8 @@
-define(['configs'], function(configs) {
+define(['configs', 'entities/lights'], function(configs, lights) {
   var renderer,   //this's the paint
       canvas,     //this's where we draw the picture
       scene,      //this's all contents of the picture ~ the picture
       camera,     //point of view
-      light1,
-      light2,
       fontMesh,   //the font ~ the black space and so far starts
       updateQueue,//
       update,
@@ -14,7 +12,7 @@ define(['configs'], function(configs) {
       height = window.innerHeight,
       windowHalfX = width / 2,
       windowHalfY = height / 2,
-      cameraMaxZ = 10, cameraMinZ = 2;
+      cameraMaxZ = 0.3, cameraMinZ = 0.1;
 
   renderer	= new THREE.WebGLRenderer();
   renderer.setSize( width, height );
@@ -26,16 +24,12 @@ define(['configs'], function(configs) {
   scene.name = "My Space";
   _focusObject = scene;
 
+  lights.forEach(function(light) {
+    scene.add(light);
+  })
+
   camera	= new THREE.PerspectiveCamera(45, width / height, 0.01, 1000 );
   camera.position.z = (cameraMaxZ + cameraMinZ) / 2;
-
-  light1	= new THREE.AmbientLight( 0x888888 );
-  scene.add( light1 );
-
-  light2	= new THREE.DirectionalLight( 0xcccccc, 1 );
-  light2.position.set(5,3,5)
-  scene.add( light2 );
-
   //space font
   var geometry  = new THREE.SphereGeometry(90, 32, 32);
   var material  = new THREE.MeshBasicMaterial();
@@ -99,6 +93,7 @@ define(['configs'], function(configs) {
       canvas: canvas,
       scene: scene,
       camera: camera,
+      lights: lights,
       _focusObject: _focusObject,
       setFocus: setFocus,
       updateQueue: updateQueue,

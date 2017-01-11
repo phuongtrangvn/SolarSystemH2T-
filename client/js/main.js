@@ -21,29 +21,29 @@ require(['app', 'entities/sun',
   app.updateQueue.push(sun.update);
 
   app.scene.add(mercury);
-  app.updateQueue.push(earth.update);
+  app.updateQueue.push(mercury.update);
 
   app.scene.add(venus);
-  app.updateQueue.push(earth.update);
+  app.updateQueue.push(venus.update);
 
   app.scene.add(earth);
   app.updateQueue.push(earth.update);
 
   app.scene.add(mars);
-  app.updateQueue.push(earth.update);
+  app.updateQueue.push(mars.update);
 
   app.scene.add(jupiter);
-  app.updateQueue.push(earth.update);
+  app.updateQueue.push(jupiter.update);
 
   app.scene.add(saturn);
-  app.updateQueue.push(earth.update);
+  app.updateQueue.push(saturn.update);
 
   app.scene.add(uranus);
-  app.updateQueue.push(earth.update);
+  app.updateQueue.push(uranus.update);
 
   app.scene.add(neptune);
-  app.updateQueue.push(earth.update);
+  app.updateQueue.push(neptune.update);
 
-  app.setFocus(earth);
+  app.setFocus(sun);
   app.update(0);
 })
