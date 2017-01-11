@@ -12,7 +12,7 @@ define(['configs', 'entities/lights'], function(configs, lights) {
       height = window.innerHeight,
       windowHalfX = width / 2,
       windowHalfY = height / 2,
-      cameraMaxZ = 0.3, cameraMinZ = 0.1;
+      cameraMaxZ = 10, cameraMinZ = 0.1;
 
   renderer	= new THREE.WebGLRenderer();
   renderer.setSize( width, height );
@@ -76,8 +76,8 @@ define(['configs', 'entities/lights'], function(configs, lights) {
       mouseX = e.clientX - windowHalfX;
       mouseY = e.clientY - windowHalfY;
 
-      camera.position.x = _focusObject.position.x + -mouseX * 0.005;
-      camera.position.y = _focusObject.position.y + mouseY * 0.005;
+      camera.position.x = _focusObject.position.x + -mouseX * 0.005 * camera.position.z;
+      camera.position.y = _focusObject.position.y + mouseY * 0.005 * camera.position.z;
 
       camera.lookAt(_focusObject.position);
   }

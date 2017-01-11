@@ -44,6 +44,6 @@ require(['app', 'entities/sun',
   app.scene.add(neptune);
   app.updateQueue.push(neptune.update);
 
-  app.setFocus(sun);
+  app.setFocus(earth);
   app.update(0);
 })
