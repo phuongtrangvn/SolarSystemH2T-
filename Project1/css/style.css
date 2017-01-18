@@ -1,0 +1,123 @@
+body{
+  background-color: black;
+}
+
+#banner {
+  display: block;
+}
+
+#banner-img {
+  width: 100%;
+  height: auto;
+}
+
+#banner-text {
+  position:absolute;
+  top: 100px;
+  left: 600px;
+  z-index: 1;
+  font-size: 50px;
+  font-family: monospace;
+
+  color: #FFF;
+  text-shadow: 0 0 150px #FFF, 0 0 60px #FFF, 0 0 10px #FFF;
+
+  -webkit-animation: my 900ms infinite;
+  -moz-animation: my 900ms infinite;
+  -o-animation: my 900ms infinite;
+  animation: my 900ms infinite;
+}
+
+#tag1_img {
+  width: 100%;
+  height: auto;
+}
+
+#tag1_text {
+  text-align: center;
+  z-index: 1;
+  font-size: 50px;
+  font-family: monospace;
+
+  color: #FFF;
+  text-shadow: 0 0 150px #FFF, 0 0 60px #FFF, 0 0 10px #FFF;
+
+  -webkit-animation: my 900ms infinite;
+  -moz-animation: my 900ms infinite;
+  -o-animation: my 900ms infinite;
+  animation: my 900ms infinite;
+}
+
+.text_in {
+  text-align: center;
+  color: #006400;
+  font-size: 23px;
+  margin: 20px;
+}
+
+.info_container{
+  padding: 0 15px 15px 15px;
+}
+
+.author_info{
+  margin-bottom: 15px;
+}
+
+.author_avatar{
+  float: left;
+  margin-right: 15px;
+  margin-left: 30px;
+  width: 300px;
+  height: 300px;
+  border-radius: 100%;
+}
+.author_avatar.author_avatar_big{
+  width: 130px;
+  height: 130px;
+}
+
+@-webkit-keyframes my {
+ 0% { color: #7fffd4; }
+ 50% { color: #fff;  }
+ 100% { color: #7fffd4;  }
+ }
+ @-moz-keyframes my {
+ 0% { color: #7fffd4;  }
+ 50% { color: #fff;  }
+ 100% { color: #7fffd4;  }
+ }
+ @-o-keyframes my {
+ 0% { color: #7fffd4; }
+ 50% { color: #fff; }
+ 100% { color: #7fffd4;  }
+ }
+ @keyframes my {
+ 0% { color: #7fffd4;  }
+ 50% { color: #fff;  }
+ 100% { color: #7fffd4;  }
+ }
+
+ body{
+  background: #000;
+  padding-top: 10px;
+ }
+
+    text_in{
+      color: lime;
+      font-family: "Courier";
+      font-size: 20px;
+      margin: 10px 0 0 10px;
+      white-space: nowrap;
+      overflow: hidden;
+      width: 100em;
+      animation: type 2s steps(100, end);
+    }
+
+
+    @keyframes type{
+      from { width: 3; }
+    }
+
+    @keyframes blink{
+      to{opacity: 0;}
+    }
