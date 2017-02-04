@@ -1,6 +1,5 @@
 body{
-  background-color: black;
-  background-image: url(img/background.jpg);
+  background-image: url(/img/background.jpg);
   background-repeat: repeat;
 }
 .container {
@@ -64,7 +63,9 @@ body{
   letter-spacing: 7px;
 }
 .image_container {
+  display: block;
   position: relative;
+  right: -300px;
   margin: 20px;
   border: 10px double #eaeaea;
   padding: 10px;
@@ -73,7 +74,7 @@ body{
 }
 
 .image_container > img{
-  width: 95%;
+  height: 95%;
   margin: 3px;
 }
 .overlay{
