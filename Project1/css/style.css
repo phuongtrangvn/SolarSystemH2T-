@@ -169,6 +169,8 @@ input,textarea{
   font-size: 17px;
   color: blue;
   font-weight: bold;
+  border: 1px solid black;
+  box-shadow: 5px 5px 0 0 black;
 }
 
 .can_you_do_list{
@@ -186,11 +188,13 @@ input,textarea{
   font-size: 17px;
   color: blue;
   font-weight: bold;
+  border: 1px solid black;
+  box-shadow: 5px 5px 0 0 black;
 }
 
 .link_project{
   position: relative;
-  padding-bottom: 10px;
+  padding-bottom: 30px;
 }
 
 .link_project_note{
