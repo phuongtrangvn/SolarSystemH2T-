@@ -44,15 +44,15 @@ define(['app', 'configs', 'entities/TrajectoryMesh'], function(app, configs, Tra
   mesh.add(cloudMesh);
   //trajectory
 
-  trajectory = new TrajectoryMesh(config.Trajectory);
+  trajectory = new TrajectoryMesh(config.Trajectory, mesh);
   mesh.trajectory = trajectory;
   app.scene.add(trajectory);
   //setup
 
-  mesh.position.x = config.distance;
-
   mesh.update = function() {
     mesh.rotation.y += 0.01;
+    trajectory.nextPosition();
+    trajectory.setPlanetPosition();
   }
 
   mesh.name = "Earth";

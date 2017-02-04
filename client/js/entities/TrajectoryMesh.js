@@ -1,6 +1,6 @@
 define([], function() {
   class TrajectoryMesh extends THREE.Line {
-    constructor(configs) {
+    constructor(configs, planet) {
       var curve = new THREE.EllipseCurve(
       	configs.aX,  configs.aY,            // ax, aY
       	configs.xRadius, configs.yRadius,           // xRadius, yRadius
@@ -14,7 +14,26 @@ define([], function() {
       var material = new THREE.LineBasicMaterial( { color : 0xffffff } );
 
       super( geometry, material );
+      this.currentVerticesIndex = configs.startPosition || 0;
+      if(planet) {
+        this.planet = planet;
+        this.setPlanetPosition();
+      }
       this.rotation.x += Math.PI / 2;
+      // this.next();
+    }
+
+    setPlanetPosition() {
+      if(this.planet) {
+        let currentVt = this.geometry.vertices[this.currentVerticesIndex]
+                          .clone()
+                          .applyAxisAngle(new THREE.Vector3(1, 0, 0), -Math.PI/2);
+        this.planet.position.set(currentVt.x, currentVt.y, currentVt.z);
+      }
+    }
+
+    nextPosition() {
+      return this.geometry.vertices[this.currentVerticesIndex < this.geometry.vertices.length - 2 ? ++this.currentVerticesIndex : (this.currentVerticesIndex = 0)];
     }
   }
 

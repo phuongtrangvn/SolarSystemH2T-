@@ -25,9 +25,9 @@ app.use(function (req, res, next) {
     next();
 });
 
-app.use(express.static(path.join(__dirname, 'client')));
+app.use(express.static(path.join(__dirname, 'Project1')));
 
-app.use('/public', express.static(path.join(__dirname, 'public')));
+app.use('/SolarSystem', express.static(path.join(__dirname, 'client')));
 
 // app.use('/api', api);
 

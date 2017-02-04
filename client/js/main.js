@@ -2,11 +2,13 @@ require.config({
   paths: {
     entities: "js/entities",
     configs: "js/configs",
+    events: "js/events",
     app: "js/app"
   }
 });
 
-require(['app', 'entities/sun',
+require(['app', 'events',
+    'entities/sun',
     'entities/mercury',
     'entities/venus',
     'entities/earth',
@@ -15,7 +17,7 @@ require(['app', 'entities/sun',
     'entities/saturn',
     'entities/uranus',
     'entities/neptune']
-    , function(app, sun, mercury, venus, earth, mars, jupiter, saturn, uranus, neptune) {
+    , function(app, events, sun, mercury, venus, earth, mars, jupiter, saturn, uranus, neptune) {
 
   app.scene.add(sun);
   app.updateQueue.push(sun.update);
@@ -44,6 +46,8 @@ require(['app', 'entities/sun',
   app.scene.add(neptune);
   app.updateQueue.push(neptune.update);
 
-  app.setFocus(earth);
-  app.update(0);
+  app.setFocus(sun);
+  $(document).ready(function() {
+    app.update(0);
+  });
 })

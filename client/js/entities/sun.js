@@ -37,6 +37,10 @@ define(['configs', 'app'], function(configs, app) {
   sunMesh.update = function() {
     sunMesh.rotation.y += 0.01;
   }
+  // console.log(app.domEvents.addEventListener);
+  // sunMesh.addEventListener("click", function(e) {
+  //   console.log("sun click");
+  // })
 
   sunMesh.name = "Sun";
 
