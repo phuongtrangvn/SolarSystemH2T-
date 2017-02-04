@@ -189,6 +189,16 @@ input,textarea{
   margin: auto;
 }
 
+.container_1{
+  overflow: hidden;
+  position: relative;
+}
+
+.container_1>*{
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 0%);
+}
 @media screen and (max-width: 640px) {
   .image_container {
     width: 250px;
