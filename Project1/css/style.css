@@ -164,10 +164,9 @@ input,textarea{
   height: 100px;
   width: 30%;
   border-radius: 100%;
-  background-color: yellow;
+  background-color: gray;
   float: left;
   font-size: 17px;
-  color: blue;
   font-weight: bold;
   border: 1px solid black;
   box-shadow: 5px 5px 0 0 black;
@@ -183,10 +182,9 @@ input,textarea{
   height: 100px;
   width: 30%;
   border-radius: 100%;
-  background-color: yellow;
+  background-color: gray;
   float: right;
   font-size: 17px;
-  color: blue;
   font-weight: bold;
   border: 1px solid black;
   box-shadow: 5px 5px 0 0 black;
@@ -205,4 +203,21 @@ input,textarea{
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+@media screen and (max-width: 530px) {
+  .image_container {
+    width: 250px;
+    height: 185px;
+  }
+  .overlay>p{
+    font-size: 10px;
+  }
+  .info-author {
+    font-size: 15px;
+  }
+  .link {
+    width: 250px;
+    height: 85px;
+  }
 }
