@@ -1,6 +1,5 @@
 body{
-  background-color: black;
-  background-image: url(img/background.jpg);
+  background-image: url(/img/background.jpg);
   background-repeat: repeat;
 }
 .container {
@@ -29,6 +28,36 @@ body{
   padding-bottom: 45px;
   text-align: center;
 }
+
+.about_project{
+  padding-top: 20px;
+  font-family: cursive;
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
+.can_you_do{
+  padding-top: 40px;
+  height: 100px;
+  width: 30%;
+  border-radius: 100%;
+  background-color: yellow;
+  float: left;
+}
+
+.can_you_do_list{
+  padding: 10px 0 0 0px;
+}
+
+.how_to_use{
+  padding-top: 40px;
+  height: 100px;
+  width: 30%;
+  border-radius: 100%;
+  background-color: yellow;
+  float: right;
+}
+
 .menu ul {
   display: inline-block;
             margin: 0;
@@ -64,7 +93,9 @@ body{
   letter-spacing: 7px;
 }
 .image_container {
+  display: block;
   position: relative;
+  right: -300px;
   margin: 20px;
   border: 10px double #eaeaea;
   padding: 10px;
@@ -73,7 +104,7 @@ body{
 }
 
 .image_container > img{
-  width: 95%;
+  height: 95%;
   margin: 3px;
 }
 .overlay{
