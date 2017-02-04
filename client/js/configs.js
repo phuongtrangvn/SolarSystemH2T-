@@ -140,14 +140,18 @@ define([], function() {
   }
 
   return {
-    sun: sun,
-    mercury: mercury,
-    venus: venus,
-    earth: earth,
-    mars: mars,
-    jupiter: jupiter,
-    saturn: saturn,
-    uranus: uranus,
-    neptune: neptune
+    sun     : sun,
+    mercury : mercury,
+    venus   : venus,
+    earth   : earth,
+    mars    : mars,
+    jupiter : jupiter,
+    saturn  : saturn,
+    uranus  : uranus,
+    neptune : neptune,
+    view    : {
+      SYSTEM  : 0,
+      PLANET  : 1
+    }
   }
 })

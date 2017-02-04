@@ -3,6 +3,8 @@ define(['configs', 'entities/lights'], function(configs, lights) {
       canvas,       //this's where we draw the picture
       scene,        //this's all contents of the picture ~ the picture
       camera,       //point of view
+      mouse,        //mouse location on canvas
+      raycaster,    //this for detect click event
       fontMesh,     //the font ~ the black space and so far starts
       updateQueue,  //
       _focusObject; //this where we look at it, focus on it
@@ -29,6 +31,10 @@ define(['configs', 'entities/lights'], function(configs, lights) {
 
   camera	= new THREE.PerspectiveCamera(45, width / height, 0.01, 1000 );
   camera.position.z = curentCameraRange = (cameraMaxRange + cameraMinRange) / 2;
+  camera.position.y = 1;
+
+  mouse = new THREE.Vector2();
+  raycaster = new THREE.Raycaster();
   //space font
   var geometry  = new THREE.SphereGeometry(90, 32, 32);
   var material  = new THREE.MeshBasicMaterial();
@@ -37,8 +43,9 @@ define(['configs', 'entities/lights'], function(configs, lights) {
   fontMesh  = new THREE.Mesh(geometry, material);
   scene.add(fontMesh);
   // console.log(THREEx);
-
   function render() {
+
+    raycaster.setFromCamera( mouse, camera );
     renderer.render( scene, camera );
   }
 
@@ -51,6 +58,8 @@ define(['configs', 'entities/lights'], function(configs, lights) {
       canvas            : canvas,
       scene             : scene,
       camera            : camera,
+      mouse             : mouse,
+      raycaster         : raycaster,
       lights            : lights,
       _focusObject      : _focusObject,
       updateQueue       : updateQueue,
@@ -64,7 +73,10 @@ define(['configs', 'entities/lights'], function(configs, lights) {
       update            : null,
       updateCameraRange : null,
       setFocus          : null,
-      mouseDown         : false
+      mouseDown         : false,
+      lastUpdate        : Date.now(),
+      view              : configs.view.SYSTEM,
+      intersectsChecking: []
   };
   // call this once to start the update queue
 
@@ -73,15 +85,18 @@ define(['configs', 'entities/lights'], function(configs, lights) {
     updateQueue.forEach(function(updateFunc) {
       updateFunc();
     });
+    app.camera.lookAt(app._focusObject.position);
+    app.lastUpdate = Date.now();
   }
 
   app.updateCameraRange = function() {
-    var direction = _focusObject.position;
     camera.position.setLength(app.curentCameraRange);
   }
 
+  app.updateCameraRange();
+
   app.setFocus = function(obj) {
-    return _focusObject = (obj && scene.children.indexOf(obj) >= 0) ? obj : scene;
+    _focusObject = (obj && scene.children.indexOf(obj) >= 0) ? obj : scene;
   }
 
   return app;
