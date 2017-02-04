@@ -36,28 +36,6 @@ body{
   padding-right: 5%;
 }
 
-.can_you_do{
-  padding-top: 40px;
-  height: 100px;
-  width: 30%;
-  border-radius: 100%;
-  background-color: yellow;
-  float: left;
-}
-
-.can_you_do_list{
-  padding: 10px 0 0 0px;
-}
-
-.how_to_use{
-  padding-top: 40px;
-  height: 100px;
-  width: 30%;
-  border-radius: 100%;
-  background-color: yellow;
-  float: right;
-}
-
 .menu ul {
   display: inline-block;
             margin: 0;
@@ -162,9 +140,10 @@ input,textarea{
 .can_you_do{
   padding-top: 40px;
   height: 100px;
-  width: 30%;
+  width: 300px;
   border-radius: 100%;
-  background-color: gray;
+  background-color: #222222;
+  color: yellow;
   float: left;
   font-size: 17px;
   font-weight: bold;
@@ -180,9 +159,10 @@ input,textarea{
 .how_to_use{
   padding-top: 40px;
   height: 100px;
-  width: 30%;
+  width: 300px;
   border-radius: 100%;
-  background-color: gray;
+  background-color: #222222;
+  color: yellow;
   float: right;
   font-size: 17px;
   font-weight: bold;
@@ -205,7 +185,11 @@ input,textarea{
   transform: translate(-50%, -50%);
 }
 
-@media screen and (max-width: 530px) {
+#image_slide_container{
+  margin: auto;
+}
+
+@media screen and (max-width: 640px) {
   .image_container {
     width: 250px;
     height: 185px;
@@ -219,5 +203,16 @@ input,textarea{
   .link {
     width: 250px;
     height: 85px;
+  }
+
+  .can_you_do{
+    width: 70%;
+    float: none;
+    margin-left: 15%;
+  }
+  .how_to_use{
+    width: 70%;
+    float: none;
+    margin-left: 15%;
   }
 }
