@@ -92,10 +92,16 @@ body{
   font-family: 'source_sans_problack';
   letter-spacing: 7px;
 }
-.image_container {
+
+.about_us>div{
   display: block;
+  width: 100%;
+}
+
+.image_container {
+  display: inline-block;
+  text-align: center;
   position: relative;
-  right: -300px;
   margin: 20px;
   border: 10px double #eaeaea;
   padding: 10px;
@@ -103,7 +109,7 @@ body{
   height: 370px;
 }
 
-.image_container > img{
+.image_container>img{
   height: 95%;
   margin: 3px;
 }
@@ -119,10 +125,65 @@ body{
 .image_container:hover .overlay{
   display: block;
 }
-
-#author_1 {
-
+.overlay>p{
+  padding: 30px;
+  color: white;
+  text-align: center;
+  font-family: cursive;
+  font-size: 15px;
+}
+.info-author {
+  display: inline-block;
+  font-family: cursive;
+  font-size: 20px;
+  color: #716a72;
+}
+input,textarea{
+  margin-top: 5px;
+}
+#footer-usage {
+  padding-bottom: 20px;
+  font-family: cursive;
+  font-size: 13px;
+}
+.about_project{
+  padding-top: 20px;
+  font-family: cursive;
+  padding-left: 5%;
+  padding-right: 5%;
+  font-size: 15px;
 }
 
-#author_2 {
+.desc-text{
+  font-size: 15px;
+  font-style: italic;
+}
+
+.can_you_do{
+  padding-top: 40px;
+  height: 100px;
+  width: 30%;
+  border-radius: 100%;
+  background-color: yellow;
+  float: left;
+  font-size: 17px;
+  color: blue;
+  font-weight: bold;
+}
+
+.can_you_do_list{
+  padding: 10px 0 0 0px;
+  font-size: 15px;
+}
+
+.how_to_use{
+  padding-top: 40px;
+  height: 100px;
+  width: 30%;
+  border-radius: 100%;
+  background-color: yellow;
+  float: right;
+  font-size: 17px;
+  color: blue;
+  font-weight: bold;
 }

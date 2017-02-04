@@ -12,10 +12,10 @@
     <script type="text/javascript" src="libs/jquery.min.js"></script>
     <script type="text/javascript" src="libs/bootstrap/js/bootstrap.min.js"></script>
     <link rel="stylesheet" type="text/css" href="css/preview.css"/>
-	<link rel="stylesheet" type="text/css" href="css/wt-rotator.css"/>
-	<script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/wt-rotator.css"/>
+    <script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>
     <script type="text/javascript" src="js/jquery.wt-rotator.min.js"></script>
-	<script type="text/javascript" src="js/preview.js"></script>
+    <script type="text/javascript" src="js/preview.js"></script>
 
     <script type="text/javascript" src="js/main.js"></script>
   </head>
@@ -70,22 +70,53 @@
         <div class="title-text">
           <h1>About Us</h1>
         </div>
-        <div class="menu">
-          <div class="image_container" id="author_1">
-            <img src="img/trangdnp.jpg" alt="trangdnp">
-            <div class="overlay">aa</div>
+        <div class="about_us">
+          <div>
+            <div class="image_container">
+              <img src="img/trangdnp.jpg" alt="trangdnp">
+              <div class="overlay"><p>"A dream doesn't become reality through magic; it takes sweat, determination and hard work."</p></div>
+            </div>
+            <div class="info-author">
+              <p>Dang Nguyen Phuong Trang</p>
+              <p>FPT University</p>
+              <p>Front-end Developer</p>
+            </div>
           </div>
-          <div class="image_container" id="author_2">
-            <img src="img/hoangvh.jpg" alt="hoangvh">
-            <div class="overlay">aa</div>
+          <img src="img/link2.png" alt="link">
+          <div>
+            <div class="info-author">
+              <p>Vu Huy Hoang</p>
+              <p>HUST</p>
+              <p>Front-end Developer</p>
+            </div>
+            <div class="image_container">
+              <img src="img/hoangvh.jpg" alt="hoangvh">
+              <div class="overlay"><p>"A dream doesn't become reality through magic; it takes sweat, determination and hard work."</p></div>
+            </div>
           </div>
-          <div class="image_container" id="author_1">
-            <img src="img/linhnt.jpg" alt="linhnt">
-            <div class="overlay">aa</div>
+          <img src="img/link.png" alt="link">
+          <div>
+            <div class="image_container">
+              <img src="img/linhnt.jpg" alt="linhnt">
+              <div class="overlay"><p>"A dream doesn't become reality through magic; it takes sweat, determination and hard work."</p></div>
+            </div>
+            <div class="info-author">
+              <p>Nguyen The Linh</p>
+              <p>FPT University</p>
+              <p>Back-end Developer</p>
+            </div>
           </div>
-          <div class="image_container" id="author_2">
-            <img src="img/hoahd.jpg" alt="hoahd">
-            <div class="overlay">aa</div>
+          <img src="img/link2.png" alt="link">
+          <div>
+            <div class="info-author">
+              <p>Ho Duc Hoa</p>
+              <p>PTIT</p>
+              <p>Front-end Developer</p>
+            </div>
+            <div class="image_container">
+              <img src="img/hoahd.jpg" alt="hoahd">
+              <div class="overlay"><p>"A dream doesn't become reality through magic; it takes sweat, determination and hard work."</p></div>
+            </div>
           </div>
         </div>
       </div>
@@ -97,7 +128,7 @@
           <h1>About Our Project</h1>
         </div>
         <div class="menu about_project">
-          <p>We bring to you a 3D Model of Solar System called "Solar System Overview" (SSO) with millions of stars, high quality planet textures and height maps.</p>
+          <p class="desc-text">We bring to you a 3D Model of Solar System called "Solar System Overview" (SSO) with millions of stars, high quality planet textures and height maps.</p>
           <div style="padding: 20px;">
             <p class= "can_you_do">What can you do with this SSO?</p>
             <p class="can_you_do_list" style="padding-top: 20px">- Have a overview of Solar System (how it works)></p>
@@ -129,8 +160,20 @@
         <div class="title-text">
           <h1>Contact</h1>
         </div>
-        <div class="menu">
-          aa
+        <div id="footer-contact">
+          <form name="footer-contact-form" action id="footer-contact-form">
+            <input type="hidden" name="fsubmitpage" id="fsubmitpage" value="/">
+            <input type="text" name="fname" id="fname" placeholder="Type your name here" style="width: 350px"><br>
+            <input type="text" name="femail" id="femail" placeholder="Type your email here" style="width: 350px"><br>
+            <textarea name="fmessage" id="fmessage" rows="5" cols="40" placeholder="Type your message here" style="width: 350px"></textarea><br>
+            <a href="#"><img class="review_img" src="img/Cature.png" alt="SEND" width="50" height="50"></a>
+          </form>
+        </div>
+
+        <div id="footer-usage">
+          <h3>Copyright &amp; Usage</h3>
+          <p>The content used in the portfolio and labs sections of this site is protected under copyright laws. If you like them don't copy, hire me :)</p>
+          <p>The techniques and files published in the tutorials section of this site can be used in whatever manner you wish without attribution.</p>
         </div>
       </div>
     </div>
