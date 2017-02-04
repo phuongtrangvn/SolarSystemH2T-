@@ -187,3 +187,18 @@ input,textarea{
   color: blue;
   font-weight: bold;
 }
+
+.link_project{
+  position: relative;
+  padding-bottom: 10px;
+}
+
+.link_project_note{
+  font-family: cursive;
+  font-size: 30px;
+  color: #b92b27;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
