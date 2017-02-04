@@ -3,7 +3,7 @@ define([], function() {
   // radiant  was division by 1 000 000
 
   var sun = {
-    radiant: 0.0696, // sun size was division by 10
+    radiant: 0.0696 * 0.5, // sun size was division by 10
     lightPower: 1,
     lightColor: "#ffffff",
     spotLight: {

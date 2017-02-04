@@ -12,13 +12,9 @@ define(['app', 'configs', 'entities/TrajectoryMesh'], function(app, configs, Tra
   geometry = new THREE.SphereGeometry(config.radiant, 32, 32);
   material = new THREE.MeshPhongMaterial();
 
-  // material.map = THREE.ImageUtils.loadTexture('img/earthmap1k.jpg');
-  //
-  // material.bumpMap = THREE.ImageUtils.loadTexture('img/earthbump1k.jpg');
-  // material.bumpScale = 0.05;
-  //
-  // material.specularMap = THREE.ImageUtils.loadTexture('img/earthspec1k.jpg');
-  // material.specular = new THREE.Color('grey');
+	material.map = THREE.ImageUtils.loadTexture('img/marsmap1k.jpg');
+	material.bumpMap = THREE.ImageUtils.loadTexture('img/marsbump1k.jpg');
+	material.bumpScale = 0.05;
 
   mesh = new THREE.Mesh(geometry, material);
 

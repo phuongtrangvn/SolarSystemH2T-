@@ -1,6 +1,8 @@
 define(['app'], function(app) {
-  var mouseX, mouseY,
-      mouseDownX, mouseDownY;
+  var rangeChange = Math.PI / 360,
+      mouseLastX, mouseLastY,
+      xAxis = THREE.Vector3(1, 0, 0),
+      yAxis = THREE.Vector3(0, 1, 0);
 
   function onWindowResize() {
 
@@ -14,8 +16,8 @@ define(['app'], function(app) {
 
   function onMouseRightDown(e) {
     app.mouseDown = true;
-    mouseDownX = e.clientX;
-    mouseDownY = e.clientY;
+    mouseLastX = e.clientX;
+    mouseLastY = e.clientY;
   }
 
   function onMouseDown(e) {
@@ -79,12 +81,11 @@ define(['app'], function(app) {
   function onMouseMove(e) {
     e.preventDefault();
     if(app.mouseDown) {
-      mouseX = e.clientX - mouseDownX;
-      mouseY = e.clientY - mouseDownY;
+      app.camera.position.x += mouseLastX > e.clientX ? -rangeChange : rangeChange;
+      app.camera.position.y += mouseLastY > e.clientY ? -rangeChange : rangeChange;
 
-      app.camera.position.x = app._focusObject.position.x + -mouseX * 0.005;
-      app.camera.position.y = app._focusObject.position.y + mouseY * 0.005;
-
+      mouseLastX = e.clientX;
+      mouseLastY = e.clientY;
       app.camera.lookAt(app._focusObject.position);
       //updateCameraRange
       app.updateCameraRange();
@@ -105,5 +106,5 @@ define(['app'], function(app) {
   $(document).on('mouseup', onMouseUp);
   $(document).on('mouseout', onMouseOut);
   $(document).on('mousemove', onMouseMove);
-  window.addEventListener('mousewheel', onMouseWheel, false);
+  window.addEventListener('wheel', onMouseWheel, false);
 })

@@ -78,7 +78,6 @@ define(['configs', 'entities/lights'], function(configs, lights) {
   app.updateCameraRange = function() {
     var direction = _focusObject.position;
     camera.position.setLength(app.curentCameraRange);
-    console.log(direction);
   }
 
   app.setFocus = function(obj) {
