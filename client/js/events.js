@@ -16,7 +16,16 @@ define(['app', 'configs'], function(app, configs) {
   }
 
   function onMouseRightDown(e) {
-    app.mouseDown = true;
+      switch (app.view) {
+        case configs.view.SYSTEM: {
+          app.mouseDown = true;
+          break;
+        }
+        case configs.view.PLANET: {
+
+          break;
+        }
+      }
   }
 
   function onMouseDown(e) {
@@ -37,12 +46,23 @@ define(['app', 'configs'], function(app, configs) {
   }
 
   function onMouseLeftClick(e) {
-    app.mouse.x = ( e.clientX / window.innerWidth ) * 2 - 1;
-    app.mouse.y = - ( e.clientY / window.innerHeight ) * 2 + 1;
-    intersect = null;
-    var intersects = app.raycaster.intersectObjects( app.intersectsChecking, false);
-    if(intersects.length > 0) {
-      $(document).trigger("changeview", [configs.view.PLANET, intersects[0]]);
+    switch (app.view) {
+      case configs.view.SYSTEM: {
+        if(app.view == configs.view.SYSTEM) {
+          app.mouse.x = ( e.clientX / window.innerWidth ) * 2 - 1;
+          app.mouse.y = - ( e.clientY / window.innerHeight ) * 2 + 1;
+          intersect = null;
+          var intersects = app.raycaster.intersectObjects( app.intersectsChecking, false);
+          if(intersects.length > 0) {
+            $(document).trigger("changeview", [configs.view.PLANET, intersects[0]]);
+          }
+        }
+        break;
+      }
+      case configs.view.PLANET: {
+
+        break;
+      }
     }
   }
 
@@ -62,7 +82,16 @@ define(['app', 'configs'], function(app, configs) {
   }
 
   function onMouseRightUp(e) {
-    app.mouseDown = false;
+    switch (app.view) {
+      case configs.view.SYSTEM: {
+        app.mouseDown = false;
+        break;
+      }
+      case configs.view.PLANET: {
+
+        break;
+      }
+    }
   }
 
   function onMouseUp(e) {
@@ -84,33 +113,76 @@ define(['app', 'configs'], function(app, configs) {
 
   function onMouseOut(e) {
     e.preventDefault();
-    app.mouseDown = false;
+    switch (app.view) {
+      case configs.view.SYSTEM: {
+        app.mouseDown = false;
+        break;
+      }
+      case configs.view.PLANET: {
+
+        break;
+      }
+    }
   }
 
   function onMouseMove(e) {
     e.preventDefault();
-  	app.mouse.x = ( e.clientX / window.innerWidth ) * 2 - 1;
-  	app.mouse.y = - ( e.clientY / window.innerHeight ) * 2 + 1;
-    if(app.mouseDown) {
-      app.camera.position.x += mouseLastX > e.clientX ? -rangeChange : rangeChange;
-      app.camera.position.y += mouseLastY > e.clientY ? -rangeChange : rangeChange;
-      mouseLastX = e.clientX;
-      mouseLastY = e.clientY;
-      app.camera.lookAt(app._focusObject.position);
-      //updateCameraRange
-      app.updateCameraRange();
+    switch (app.view) {
+      case configs.view.SYSTEM: {
+      	app.mouse.x = ( e.clientX / window.innerWidth ) * 2 - 1;
+      	app.mouse.y = - ( e.clientY / window.innerHeight ) * 2 + 1;
+        if(app.mouseDown) {
+          app.camera.position.x -= mouseLastX > e.clientX ? -rangeChange : rangeChange;
+          app.camera.position.y += mouseLastY > e.clientY ? -rangeChange : rangeChange;
+          mouseLastX = e.clientX;
+          mouseLastY = e.clientY;
+          app.camera.lookAt(app._focusObject.position);
+          //updateCameraRange
+          app.updateCameraRange();
+        }
+        break;
+      }
+      case configs.view.PLANET: {
+
+        break;
+      }
     }
   }
 
   function onMouseWheel(e) {
-      let newRange = app.curentCameraRange += e.deltaY > 0 ? wheelSpeed : -wheelSpeed;
-      app.curentCameraRange = newRange > app.cameraMaxRange ? app.cameraMaxRange : newRange < app.cameraMinRange ? app.cameraMinRange : newRange;
-      //updateCameraRange
-      app.updateCameraRange();
+    switch (app.view) {
+      case configs.view.SYSTEM: {
+        let newRange = app.currentCameraRange += e.deltaY > 0 ? wheelSpeed : -wheelSpeed;
+        app.currentCameraRange = newRange > app.cameraMaxRange ? app.cameraMaxRange : newRange < app.cameraMinRange ? app.cameraMinRange : newRange;
+        //updateCameraRange
+        app.updateCameraRange();
+        break;
+      }
+      case configs.view.PLANET: {
+
+        break;
+      }
+    }
   }
 
-  function onChangeView(e, viewType, object) {
-    console.log(viewType, object);
+  function onChangeView(e, viewTarget, object) {
+    if(app.view != viewTarget) {
+      switch (viewTarget) {
+        case configs.view.SYSTEM: {
+
+
+          app.view = viewTarget;
+          break;
+        }
+        case configs.view.PLANET: {
+          app.planetView.onFocus(object.object);
+          app.setFocus(app.planetView);
+
+          app.view = viewTarget;
+          break;
+        }
+      }
+    }
   }
 
   $(window).on('resize', onWindowResize);

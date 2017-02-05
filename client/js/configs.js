@@ -2,6 +2,11 @@ define([], function() {
   // distance was division by 1 000 000 000
   // radiant  was division by 1 000 000
 
+  var planetView = {
+    distance: 0.5,
+    radiant: 0.1
+  }
+
   var sun = {
     radiant: 0.0696 * 0.5, // sun size was division by 10
     lightPower: 1,
@@ -140,16 +145,17 @@ define([], function() {
   }
 
   return {
-    sun     : sun,
-    mercury : mercury,
-    venus   : venus,
-    earth   : earth,
-    mars    : mars,
-    jupiter : jupiter,
-    saturn  : saturn,
-    uranus  : uranus,
-    neptune : neptune,
-    view    : {
+    planetView: planetView,
+    sun       : sun,
+    mercury   : mercury,
+    venus     : venus,
+    earth     : earth,
+    mars      : mars,
+    jupiter   : jupiter,
+    saturn    : saturn,
+    uranus    : uranus,
+    neptune   : neptune,
+    view      : {
       SYSTEM  : 0,
       PLANET  : 1
     }

@@ -11,6 +11,8 @@ define(['configs', 'app'], function(configs, app) {
   material = new THREE.MeshPhongMaterial();
 
   material.map = THREE.ImageUtils.loadTexture('img/sunmap.jpg');
+	material.bumpMap = THREE.ImageUtils.loadTexture('img/sunmap.jpg');
+	material.bumpScale = 0.05;
 
   sunMesh = new THREE.Mesh(geometry, material);
 
