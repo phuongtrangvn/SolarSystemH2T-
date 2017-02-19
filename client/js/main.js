@@ -58,5 +58,10 @@ require(['app', 'events',
   app.setFocus(sun);
   $(document).ready(function() {
     app.update(0);
+    app.menu = {
+      ssv: $("#solarSystemView"),
+      left: $(".menu>.left"),
+      right: $(".menu>.right")
+    };
   });
 })

@@ -6,6 +6,7 @@ define(['app', 'configs'], function(app, configs) {
       wheelSpeed = 0.1,
       intersect = null;
 
+  //resizing >> resize world
   function onWindowResize() {
       app.windowHalfX = (app.width = window.innerWidth) / 2;
       app.windowHalfY = (app.height = window.innerHeight) / 2;
@@ -15,6 +16,7 @@ define(['app', 'configs'], function(app, configs) {
       app.renderer.setSize(app.width, app.height);
   }
 
+  //mouse down
   function onMouseRightDown(e) {
       switch (app.view) {
         case configs.view.SYSTEM: {
@@ -45,6 +47,7 @@ define(['app', 'configs'], function(app, configs) {
     }
   }
 
+  //mouse click
   function onMouseLeftClick(e) {
     switch (app.view) {
       case configs.view.SYSTEM: {
@@ -81,6 +84,7 @@ define(['app', 'configs'], function(app, configs) {
     }
   }
 
+  //mouse up
   function onMouseRightUp(e) {
     switch (app.view) {
       case configs.view.SYSTEM: {
@@ -111,6 +115,7 @@ define(['app', 'configs'], function(app, configs) {
     }
   }
 
+  //mouse out
   function onMouseOut(e) {
     e.preventDefault();
     switch (app.view) {
@@ -125,6 +130,7 @@ define(['app', 'configs'], function(app, configs) {
     }
   }
 
+  //mouse move
   function onMouseMove(e) {
     e.preventDefault();
     switch (app.view) {
@@ -149,6 +155,7 @@ define(['app', 'configs'], function(app, configs) {
     }
   }
 
+  //mouse wheel
   function onMouseWheel(e) {
     switch (app.view) {
       case configs.view.SYSTEM: {
@@ -165,6 +172,7 @@ define(['app', 'configs'], function(app, configs) {
     }
   }
 
+  // change view
   function onChangeView(e, viewTarget, object) {
     if(app.view != viewTarget) {
       switch (viewTarget) {
